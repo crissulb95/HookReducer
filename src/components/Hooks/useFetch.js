@@ -5,9 +5,9 @@ export const useFetch = ( url ) => {
     const isMounted = useRef(true);
 
     const [state, setState] = useState({ 
+        data: null,
         loading: true,
         error: null,
-        data: null,
     });
 
     useEffect( () => {
@@ -21,9 +21,9 @@ export const useFetch = ( url ) => {
     useEffect(() => {
 
         setState({ 
+            data: null,
             loading: true,
             error: null,
-            data: null,
         });
 
         fetch( url )
@@ -35,11 +35,20 @@ export const useFetch = ( url ) => {
                         
                         loading: false,
                         error: null,
-                        data,
+                        data
 
                     });
                 }
 
+            })
+            .catch( () => {
+                setState({
+                    
+                    data:null,
+                    loading: false,
+                    error: 'No se pudo cargar la información desde el servidor',
+
+                })
             });
     }, [ url ]);
 

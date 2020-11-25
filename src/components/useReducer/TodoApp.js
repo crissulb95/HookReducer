@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
 import { todoReducer } from './todoReducer';
-import './styles.css';
 import { TodoList } from './TodoList';
 import { TodoAdd } from './TodoAdd';
 
@@ -68,7 +67,7 @@ export const TodoApp = () => {
                     />
                 </div>
                 <div className = 'col-5'>
-                    <TodoAdd 
+                    <TodoAdd
                         handleAddTodo={ handleAddTodo }
                     />
                 </div>
